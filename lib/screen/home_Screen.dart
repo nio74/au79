@@ -68,11 +68,9 @@ class _HomeScreenState extends State<HomeScreen> with WindowListener {
         appBar: AppBar(
           actions: [
             IconButton(
-                onPressed: () {
-                  onWindowClose();
-                },
+                onPressed: () {},
                 icon: const Icon(
-                  Icons.close,
+                  Icons.aspect_ratio_rounded,
                 )),
             IconButton(
                 onPressed: () {},
@@ -80,9 +78,11 @@ class _HomeScreenState extends State<HomeScreen> with WindowListener {
                   Icons.call_to_action_outlined,
                 )),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  onWindowClose();
+                },
                 icon: const Icon(
-                  Icons.account_balance_sharp,
+                  Icons.close,
                 )),
           ],
           title: const Text('Au79'),
@@ -126,8 +126,8 @@ class _HomeScreenState extends State<HomeScreen> with WindowListener {
                 floatHeaderSlivers: false,
                 headerSliverBuilder:
                     (BuildContext context, bool innerBoxIsScrolled) {
-                  return <Widget>[
-                    new SliverAppBar(
+                  return [
+                    const SliverAppBar(
                       //title: Text('Tabs Demo'),
                       toolbarHeight: 10,
                       pinned: false,
@@ -138,11 +138,11 @@ class _HomeScreenState extends State<HomeScreen> with WindowListener {
                           Tab(
                             child: Text('Vendita'),
                           ),
-                          Tab(child: const Text('Oreficeria')),
-                          Tab(child: const Text('Orologeria')),
-                          Tab(child: const Text('Gioielleria')),
-                          Tab(child: const Text('Argernteria')),
-                          Tab(child: const Text('Riparazioni')),
+                          Tab(child: Text('Oreficeria')),
+                          Tab(child: Text('Orologeria')),
+                          Tab(child: Text('Gioielleria')),
+                          Tab(child: Text('Argernteria')),
+                          Tab(child: Text('Riparazioni')),
                         ],
                       ),
                     ),
@@ -155,143 +155,38 @@ class _HomeScreenState extends State<HomeScreen> with WindowListener {
                     Icon(Icons.directions_car, size: 350),
                     Icon(Icons.directions_bike, size: 350),
                     Icon(Icons.directions_boat, size: 350),
-                    Icon(Icons.directions_boat, size: 350),
+                    PageRiparazioni(),
                   ],
                 ),
               ),
             )),
       ),
     );
-    /* Scaffold(
-      appBar: AppBar(
-          title: Center(
-        child: Row(children: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                primary: Theme.of(context).primaryColor),
-            child: Text('Riparazioni'),
-            onPressed: () {
-              Navigator.pushNamed(context, '/riparazioni');
-            },
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-          ElevatedButton(
-            child: Text('data'),
-            onPressed: () {},
-          ),
-        ]),
-      )),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: const <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text(
-                'Drawer Header',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.message),
-              title: Text('Messages'),
-            ),
-            ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Profile'),
-            ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-            ),
+  }
+}
+
+class PageRiparazioni extends StatefulWidget {
+  PageRiparazioni({Key? key}) : super(key: key);
+
+  @override
+  State<PageRiparazioni> createState() => _PageRiparazioniState();
+}
+
+class _PageRiparazioniState extends State<PageRiparazioni> {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Column(
+        children:[ Row(
+          children: [
+            Column()
+            Expanded(child: Container()),
+            Column()
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-          ),
+        Row()
         ],
       ),
     );
-   */
   }
 }
