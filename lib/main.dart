@@ -1,5 +1,5 @@
+import 'package:au79/page/home_Page.dart';
 import 'package:au79/route/route_generator.dart';
-import 'package:au79/screen/home_Screen.dart';
 import 'package:au79/utilities/config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -95,7 +95,7 @@ class _MyAppState extends State<MyApp> {
       }, */
       initialRoute: '/',
       onGenerateRoute: RouteGeneretor.generateRoute,
-      home: HomeScreen(),
+      home: HomePage(),
     );
   }
 }

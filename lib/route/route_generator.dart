@@ -1,5 +1,5 @@
-import 'package:au79/screen/home_Screen.dart';
-import 'package:au79/screen/riparazioni_screen.dart';
+import 'package:au79/page/home_Page.dart';
+import 'package:au79/page/riparazioni_Page.dart';
 import 'package:flutter/material.dart';
 
 class RouteGeneretor {
@@ -8,9 +8,9 @@ class RouteGeneretor {
 
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => HomeScreen());
+        return MaterialPageRoute(builder: (_) => HomePage());
       case '/riparazioni':
-        return MaterialPageRoute(builder: (_) => RiparazioniScreen());
+        return MaterialPageRoute(builder: (_) => RiparazioniPage());
       /* case '/edit_employee':
         if (args is int) {
           return MaterialPageRoute(

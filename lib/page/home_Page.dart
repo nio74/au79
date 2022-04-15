@@ -1,14 +1,16 @@
+import 'package:au79/model/model_Roparazioni.dart';
+import 'package:au79/page/riparazioni_Page.dart';
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 
-class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomePage> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with WindowListener {
+class _HomeScreenState extends State<HomePage> with WindowListener {
   @override
   void initState() {
     windowManager.addListener(this);
@@ -155,37 +157,11 @@ class _HomeScreenState extends State<HomeScreen> with WindowListener {
                     Icon(Icons.directions_car, size: 350),
                     Icon(Icons.directions_bike, size: 350),
                     Icon(Icons.directions_boat, size: 350),
-                    PageRiparazioni(),
+                    RiparazioniPage(),
                   ],
                 ),
               ),
             )),
-      ),
-    );
-  }
-}
-
-class PageRiparazioni extends StatefulWidget {
-  PageRiparazioni({Key? key}) : super(key: key);
-
-  @override
-  State<PageRiparazioni> createState() => _PageRiparazioniState();
-}
-
-class _PageRiparazioniState extends State<PageRiparazioni> {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Column(
-        children:[ Row(
-          children: [
-            Column()
-            Expanded(child: Container()),
-            Column()
-          ],
-        ),
-        Row()
-        ],
       ),
     );
   }
