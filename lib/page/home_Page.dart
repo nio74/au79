@@ -157,7 +157,7 @@ class _HomeScreenState extends State<HomePage> with WindowListener {
                     Icon(Icons.directions_car, size: 350),
                     Icon(Icons.directions_bike, size: 350),
                     Icon(Icons.directions_boat, size: 350),
-                    RiparazioniPage(),
+                    RiparazionePage(),
                   ],
                 ),
               ),

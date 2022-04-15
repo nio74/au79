@@ -10,7 +10,7 @@ class RouteGeneretor {
       case '/':
         return MaterialPageRoute(builder: (_) => HomePage());
       case '/riparazioni':
-        return MaterialPageRoute(builder: (_) => RiparazioniPage());
+        return MaterialPageRoute(builder: (_) => RiparazionePage());
       /* case '/edit_employee':
         if (args is int) {
           return MaterialPageRoute(
