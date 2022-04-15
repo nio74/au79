@@ -11,11 +11,20 @@ class RiparazionePage extends StatefulWidget {
 class _PageRiparazioniState extends State<RiparazionePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(child: sectionBuste(context));
+    return Column(children: [
+      Row(),
+      Expanded(
+        child: Column(children: [
+          Expanded(
+              child: Container(
+                  color: Colors.red, height: 50, child: sectionBuste(context))),
+        ]),
+      )
+    ]);
   }
 
   Widget sectionBuste(BuildContext context) {
-    ListView.builder(
+    return ListView.builder(
         itemCount: envelopes.length,
         itemBuilder: (context, index) {
           return Card(
@@ -25,6 +34,5 @@ class _PageRiparazioniState extends State<RiparazionePage> {
             ),
           );
         });
-    return ListView();
   }
 }
