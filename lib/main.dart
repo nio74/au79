@@ -1,6 +1,8 @@
 import 'package:au79/bloc/lista_riparazioni_bloc.dart';
 import 'package:au79/page/home_Page.dart';
 import 'package:au79/route/route_generator.dart';
+import 'package:au79/themes/dark_theme.dart';
+import 'package:au79/themes/light_theme.dart';
 import 'package:au79/utilities/config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +78,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Au79',
-      theme: ThemeData(
+      theme: lightThemeData,
+      darkTheme: darkThemeData,
+      themeMode: _themeMode,
+      /*    theme: ThemeData(
         // Define the default brightness and colors.
         brightness: Brightness.dark,
         primaryColor: Colors.lightBlue[800],
@@ -91,7 +96,7 @@ class _MyAppState extends State<MyApp> {
           headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
           bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
         ),
-      ),
+      ), */
       /* builder: (context, child) {
         child = virtualWindowFrameBuilder(context, child);
         child = botToastBuilder(context, child);
