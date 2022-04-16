@@ -57,4 +57,30 @@ class _PageRiparazioniState extends State<RiparazionePage> {
       }
     });
   }
+  Widget datataBleRipazioni(){
+
+    final columns = ["Codice","Oggetti","Lavorazione"];
+    
+    return  BlocBuilder<ListaRiparazioniBloc, ListaRiparazioniBlocState>(
+        builder: (context, state) {
+      if (state is ListaRiparazioniBlocStateLoading) {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      } else {
+        final riparazioni =
+            (state as ListaRiparazioniBlocStateLoaded).riparazioni;
+        return DataTable(
+          columns: [
+          DataColumn(label: Text('Codice')),
+                    DataColumn(label: Text('oggetti')),
+                              DataColumn(label: Text('riparazione')),
+
+   ], 
+   rows: DataRow(
+     cells: [
+              DataCell(Text(riparazioni[index].codice.toRadixString(radix))),
+   ]))
+
+  }
 }
