@@ -1,4 +1,3 @@
-import 'package:au79/model/model_Roparazioni.dart';
 import 'package:au79/page/riparazioni_Page.dart';
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
@@ -38,7 +37,7 @@ class _HomeScreenState extends State<HomePage> with WindowListener {
         context: context,
         builder: (_) {
           return AlertDialog(
-            title: Text('Are you sure you want to close this window?'),
+            title: Text('Sei sicuro che vuoi uscire?'),
             actions: [
               TextButton(
                 child: Text('No'),
@@ -47,7 +46,7 @@ class _HomeScreenState extends State<HomePage> with WindowListener {
                 },
               ),
               TextButton(
-                child: Text('Yes'),
+                child: Text('SI'),
                 onPressed: () {
                   Navigator.of(context).pop();
                   windowManager.destroy();
@@ -110,12 +109,9 @@ class _HomeScreenState extends State<HomePage> with WindowListener {
                 },
               ),
               ListTile(
-                title: const Text('Item 2'),
+                title: const Text('Impostazioni'),
                 onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/impostazioni');
                 },
               ),
             ],

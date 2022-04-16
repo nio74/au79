@@ -1,8 +1,10 @@
+import 'package:au79/bloc/lista_riparazioni_bloc.dart';
 import 'package:au79/page/home_Page.dart';
 import 'package:au79/route/route_generator.dart';
 import 'package:au79/utilities/config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:window_manager/window_manager.dart';
 
@@ -36,7 +38,9 @@ void main() async {
     });
   }
 
-  runApp(MyApp());
+  runApp(MultiBlocProvider(
+      providers: [BlocProvider(create: (_) => ListaRiparazioniBloc())],
+      child: MyApp()));
 }
 
 class MyApp extends StatefulWidget {

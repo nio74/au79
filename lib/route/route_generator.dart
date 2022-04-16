@@ -1,4 +1,5 @@
 import 'package:au79/page/home_Page.dart';
+import 'package:au79/page/impostazioni_page.dart';
 import 'package:au79/page/riparazioni_Page.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,9 @@ class RouteGeneretor {
         return MaterialPageRoute(builder: (_) => HomePage());
       case '/riparazioni':
         return MaterialPageRoute(builder: (_) => RiparazionePage());
+      case '/impostazioni':
+        return MaterialPageRoute(builder: (_) => ImpostazioniPage());
+
       /* case '/edit_employee':
         if (args is int) {
           return MaterialPageRoute(

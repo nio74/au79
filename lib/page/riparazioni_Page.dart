@@ -1,5 +1,7 @@
-import 'package:au79/model/model_Roparazioni.dart';
+import 'package:au79/bloc/lista_riparazioni_bloc.dart';
+import 'package:au79/model/riparazioni_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RiparazionePage extends StatefulWidget {
   RiparazionePage({Key? key}) : super(key: key);
@@ -10,6 +12,14 @@ class RiparazionePage extends StatefulWidget {
 
 class _PageRiparazioniState extends State<RiparazionePage> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    BlocProvider.of<ListaRiparazioniBloc>(context)
+        .add(ListaRiparazioniBlocEventInit());
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(children: [
       Row(),
@@ -17,22 +27,34 @@ class _PageRiparazioniState extends State<RiparazionePage> {
         child: Column(children: [
           Expanded(
               child: Container(
-                  color: Colors.red, height: 50, child: sectionBuste(context))),
+                  //color: Colors.red,
+                  //height: 100,
+                  child: sectionBuste(context))),
         ]),
       )
     ]);
   }
 
   Widget sectionBuste(BuildContext context) {
-    return ListView.builder(
-        itemCount: envelopes.length,
-        itemBuilder: (context, index) {
-          return Card(
-            child: ListTile(
-              onTap: () {},
-              title: Text(envelopes[index].codice.toString()),
-            ),
-          );
-        });
+    return BlocBuilder<ListaRiparazioniBloc, ListaRiparazioniBlocState>(
+        builder: (context, state) {
+      if (state is ListaRiparazioniBlocStateLoading) {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      } else {
+        final riparazioni =
+            (state as ListaRiparazioniBlocStateLoaded).riparazioni;
+        return ListView.builder(
+            itemCount: riparazioni.length,
+            itemBuilder: (context, index) {
+              return Row(children: [
+                Card(child: Text(riparazioni[index].codice.toString())),
+                Card(child: Text(riparazioni[index].oggetti)),
+                Card(child: Text(riparazioni[index].lavoriFaFare)),
+              ]);
+            });
+      }
+    });
   }
 }
