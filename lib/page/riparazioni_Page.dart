@@ -1,5 +1,5 @@
-import 'package:au79/bloc/lista_riparazioni_bloc.dart';
-import 'package:au79/model/riparazioni_model.dart';
+import 'package:au79/blocs/list_rip_bloc.dart';
+import 'package:au79/model/repair_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,8 +15,7 @@ class _PageRiparazioniState extends State<RiparazionePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    BlocProvider.of<ListaRiparazioniBloc>(context)
-        .add(ListaRiparazioniBlocEventInit());
+    BlocProvider.of<ListRepairBloc>(context).add(ListRepairBlocEventInit());
   }
 
   @override
@@ -29,58 +28,65 @@ class _PageRiparazioniState extends State<RiparazionePage> {
               child: Container(
                   //color: Colors.red,
                   //height: 100,
-                  child: sectionBuste(context))),
+                  // child: sectionBuste(context))),
+                  child: dataTableRepair(context))),
         ]),
       )
     ]);
   }
 
+/*
   Widget sectionBuste(BuildContext context) {
-    return BlocBuilder<ListaRiparazioniBloc, ListaRiparazioniBlocState>(
+    return BlocBuilder<ListRepairBloc, ListRepairBlocState>(
         builder: (context, state) {
       if (state is ListaRiparazioniBlocStateLoading) {
         return Center(
           child: CircularProgressIndicator(),
         );
       } else {
-        final riparazioni =
-            (state as ListaRiparazioniBlocStateLoaded).riparazioni;
+        final riparazioni = (state as ListRepairBlocStateLoaded).repairs;
         return ListView.builder(
             itemCount: riparazioni.length,
             itemBuilder: (context, index) {
               return Row(children: [
-                Card(child: Text(riparazioni[index].codice.toString())),
-                Card(child: Text(riparazioni[index].oggetti)),
-                Card(child: Text(riparazioni[index].lavoriFaFare)),
+                Card(child: Text(riparazioni[index].code.toString())),
+                Card(child: Text(riparazioni[index].object)),
+                Card(child: Text(riparazioni[index].workTodo)),
               ]);
             });
       }
     });
   }
-  Widget datataBleRipazioni(){
+}
+*/
+  Widget dataTableRepair(BuildContext context) {
+    //final blocRiparazioni = ListaRiparazioniBloc();
 
-    final columns = ["Codice","Oggetti","Lavorazione"];
-    
-    return  BlocBuilder<ListaRiparazioniBloc, ListaRiparazioniBlocState>(
+    return BlocBuilder<ListRepairBloc, ListRepairBlocState>(
         builder: (context, state) {
       if (state is ListaRiparazioniBlocStateLoading) {
         return Center(
           child: CircularProgressIndicator(),
         );
       } else {
-        final riparazioni =
-            (state as ListaRiparazioniBlocStateLoaded).riparazioni;
-        return DataTable(
-          columns: [
-          DataColumn(label: Text('Codice')),
-                    DataColumn(label: Text('oggetti')),
-                              DataColumn(label: Text('riparazione')),
-
-   ], 
-   rows: DataRow(
-     cells: [
-              DataCell(Text(riparazioni[index].codice.toRadixString(radix))),
-   ]))
-
+        final repairs = (state as ListRepairBlocStateLoaded).repairs;
+        return SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: DataTable(
+              columns: const [
+                DataColumn(label: Text('code')),
+                DataColumn(label: Text('Object')),
+                DataColumn(label: Text('Work to do')),
+              ],
+              rows: repairs
+                  .map<DataRow>((element) => DataRow(cells: [
+                        DataCell(Text(element.code.toString())),
+                        DataCell(Text(element.object)),
+                        DataCell(Text(element.workTodo)),
+                      ]))
+                  .toList()),
+        );
+      }
+    });
   }
 }
