@@ -1,4 +1,4 @@
-import 'package:au79/bloc/lista_riparazioni_bloc.dart';
+import 'package:au79/blocs/list_rip_bloc.dart';
 import 'package:au79/page/home_Page.dart';
 import 'package:au79/route/route_generator.dart';
 import 'package:au79/themes/dark_theme.dart';
@@ -41,7 +41,7 @@ void main() async {
   }
 
   runApp(MultiBlocProvider(
-      providers: [BlocProvider(create: (_) => ListaRiparazioniBloc())],
+      providers: [BlocProvider(create: (_) => ListRepairBloc())],
       child: MyApp()));
 }
 
