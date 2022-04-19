@@ -1,4 +1,6 @@
-class RepairModel {
+import 'package:equatable/equatable.dart';
+
+class RepairModel extends Equatable {
   final int code;
   final String name;
   final String object;
@@ -10,6 +12,10 @@ class RepairModel {
     required this.object,
     required this.workTodo,
   });
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => throw UnimplementedError();
 }
 
 final repairList = [
@@ -19,38 +25,9 @@ final repairList = [
       object: 'ring',
       workTodo: 'workTodo saldare e portare a misura'),
   RepairModel(code: 2, name: 'Jhon', object: 'Bracialet', workTodo: 'workTodo'),
-  RepairModel(code: 3, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 1, name: 'Mike', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 2, name: 'Jhon', object: 'Bracialet', workTodo: 'workTodo'),
-  RepairModel(code: 3, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 1, name: 'Mike', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 2, name: 'Jhon', object: 'Bracialet', workTodo: 'workTodo'),
-  RepairModel(code: 3, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 1, name: 'Mike', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 2, name: 'Jhon', object: 'Bracialet', workTodo: 'workTodo'),
-  RepairModel(code: 3, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 1, name: 'Mike', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 2, name: 'Jhon', object: 'Bracialet', workTodo: 'workTodo'),
-  RepairModel(code: 3, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 1, name: 'Mike', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 2, name: 'Jhon', object: 'Bracialet', workTodo: 'workTodo'),
-  RepairModel(code: 3, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 1, name: 'Mike', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 2, name: 'Jhon', object: 'Bracialet', workTodo: 'workTodo'),
-  RepairModel(code: 3, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 1, name: 'Mike', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 2, name: 'Jhon', object: 'Bracialet', workTodo: 'workTodo'),
-  RepairModel(code: 3, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 1, name: 'Mike', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 2, name: 'Jhon', object: 'Bracialet', workTodo: 'workTodo'),
-  RepairModel(code: 3, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 1, name: 'Mike', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 2, name: 'Jhon', object: 'Bracialet', workTodo: 'workTodo'),
-  RepairModel(code: 3, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 1, name: 'Mike', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 2, name: 'Jhon', object: 'Bracialet', workTodo: 'workTodo'),
-  RepairModel(code: 3, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 1, name: 'Mike', object: 'ring', workTodo: 'workTodo'),
-  RepairModel(code: 2, name: 'Jhon', object: 'Bracialet', workTodo: 'workTodo'),
-  RepairModel(code: 8, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
+  RepairModel(code: 2, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
+  RepairModel(code: 4, name: 'Mike', object: 'ring', workTodo: 'workTodo'),
+  RepairModel(code: 5, name: 'Jhon', object: 'Bracialet', workTodo: 'workTodo'),
+  RepairModel(code: 6, name: 'Pinco', object: 'ring', workTodo: 'workTodo'),
+  RepairModel(code: 7, name: 'Mike', object: 'ring', workTodo: 'workTodo'),
 ];
