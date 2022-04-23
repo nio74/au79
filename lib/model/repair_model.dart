@@ -15,7 +15,21 @@ class RepairModel extends Equatable {
 
   @override
   // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [code, name, object, workTodo];
+
+  RepairModel copyWith({
+    int? code,
+    String? name,
+    String? object,
+    String? workTodo,
+  }) {
+    return RepairModel(
+      code: code ?? this.code,
+      name: name ?? this.name,
+      object: object ?? this.object,
+      workTodo: workTodo ?? this.workTodo,
+    );
+  }
 }
 
 final repairList = [

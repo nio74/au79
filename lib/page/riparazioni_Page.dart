@@ -1,4 +1,5 @@
 import 'package:au79/blocs/list_rip_bloc.dart';
+import 'package:au79/blocs/repairs/repairs_bloc.dart';
 import 'package:au79/model/repair_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +16,8 @@ class _PageRiparazioniState extends State<RiparazionePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    BlocProvider.of<ListRepairBloc>(context).add(ListRepairBlocEventInit());
+    //BlocProvider.of<ListRepairBloc>(context).add(ListRepairBlocEventInit());
+    BlocProvider.of<RepairsBloc>(context).add(Loadrepairs(repairs: repairList));
   }
 
   @override
@@ -29,7 +31,7 @@ class _PageRiparazioniState extends State<RiparazionePage> {
                   //color: Colors.red,
                   //height: 100,
                   // child: sectionBuste(context))),
-                  child: dataTableRepair(context))),
+                  child: DataTableRepairWidget(context: context))),
         ]),
       )
     ]);
@@ -59,17 +61,27 @@ class _PageRiparazioniState extends State<RiparazionePage> {
   }
 }
 */
-  Widget dataTableRepair(BuildContext context) {
+}
+
+class DataTableRepairWidget extends StatelessWidget {
+  const DataTableRepairWidget({
+    Key? key,
+    required this.context,
+  }) : super(key: key);
+
+  final BuildContext context;
+
+  @override
+  Widget build(BuildContext context) {
     //final blocRiparazioni = ListaRiparazioniBloc();
 
-    return BlocBuilder<ListRepairBloc, ListRepairBlocState>(
-        builder: (context, state) {
-      if (state is ListaRiparazioniBlocStateLoading) {
+    return BlocBuilder<RepairsBloc, RepairsState>(builder: (context, state) {
+      if (state is RepairsLoading) {
         return Center(
           child: CircularProgressIndicator(),
         );
       } else {
-        final repairs = (state as ListRepairBlocStateLoaded).repairs;
+        final repairs = (state as RepairsLoaded).repairs;
         return SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: DataTable(

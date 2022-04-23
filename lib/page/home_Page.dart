@@ -69,12 +69,16 @@ class _HomeScreenState extends State<HomePage> with WindowListener {
         appBar: AppBar(
           actions: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  windowManager.maximize();
+                },
                 icon: const Icon(
                   Icons.aspect_ratio_rounded,
                 )),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  windowManager.minimize();
+                },
                 icon: const Icon(
                   Icons.call_to_action_outlined,
                 )),
@@ -102,11 +106,17 @@ class _HomeScreenState extends State<HomePage> with WindowListener {
                 ),
                 child: Text('Drawer Header'),
               ),
-              ListTile(
-                title: const Text('riparazioni'),
-                onTap: () {
-                  Navigator.pushNamed(context, '/riparazioni');
-                },
+              ExpansionTile(
+                leading: Icon(Icons.key),
+                title: Text('riparazioni'),
+                children: [
+                  ListTile(
+                    title: const Text('inserimento'),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/riparazioni');
+                    },
+                  ),
+                ],
               ),
               ListTile(
                 title: const Text('Impostazioni'),
