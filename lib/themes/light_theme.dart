@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 var lightThemeData = ThemeData(
   brightness: Brightness.light,
-  primaryColor: Color(0xff416ff4),
+  // primaryColor: Color(0xff416ff4),
   scaffoldBackgroundColor: Color(0xFFF5F5F5),
-  accentColor: Color(0xFFe84545),
+  //accentColor: Color(0xFFe84545),
+  colorScheme: const ColorScheme.light(primary: Color(0xff416ff4)),
   backgroundColor: Color(0xFFFFFFFF),
   fontFamily: 'Futura',
   textTheme: const TextTheme(

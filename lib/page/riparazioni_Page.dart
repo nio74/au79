@@ -22,19 +22,25 @@ class _PageRiparazioniState extends State<RiparazionePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Row(),
-      Expanded(
-        child: Column(children: [
-          Expanded(
-              child: Container(
-                  //color: Colors.red,
-                  //height: 100,
-                  // child: sectionBuste(context))),
-                  child: DataTableRepairWidget(context: context))),
-        ]),
-      )
-    ]);
+    return Scaffold(
+      appBar: AppBar(
+          /*  backgroundColor: Colors.transparent,
+        elevation: 0, */
+          ),
+      body: Column(children: [
+        Row(),
+        Expanded(
+          child: Column(children: [
+            Expanded(
+                child: Container(
+                    //color: Colors.red,
+                    //height: 100,
+                    // child: sectionBuste(context))),
+                    child: DataTableRepairWidget(context: context))),
+          ]),
+        )
+      ]),
+    );
   }
 
 /*

@@ -66,68 +66,80 @@ class _HomeScreenState extends State<HomePage> with WindowListener {
         windowManager.startDragging();
       },
       child: Scaffold(
-        appBar: AppBar(
-          actions: [
-            IconButton(
-                onPressed: () {
-                  windowManager.maximize();
-                },
-                icon: const Icon(
-                  Icons.aspect_ratio_rounded,
-                )),
-            IconButton(
-                onPressed: () {
-                  windowManager.minimize();
-                },
-                icon: const Icon(
-                  Icons.call_to_action_outlined,
-                )),
-            IconButton(
-                onPressed: () {
-                  onWindowClose();
-                },
-                icon: const Icon(
-                  Icons.close,
-                )),
-          ],
-          title: const Text('Au79'),
-        ),
-        drawer: Drawer(
-          // Add a ListView to the drawer. This ensures the user can scroll
-          // through the options in the drawer if there isn't enough vertical
-          // space to fit everything.
-          child: ListView(
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.zero,
-            children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text('Drawer Header'),
-              ),
-              ExpansionTile(
-                leading: Icon(Icons.key),
-                title: Text('riparazioni'),
-                children: [
-                  ListTile(
-                    title: const Text('inserimento'),
-                    onTap: () {
-                      Navigator.pushNamed(context, '/riparazioni');
-                    },
-                  ),
-                ],
-              ),
-              ListTile(
-                title: const Text('Impostazioni'),
-                onTap: () {
-                  Navigator.pushNamed(context, '/impostazioni');
-                },
-              ),
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).primaryColor,
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    windowManager.maximize();
+                  },
+                  icon: const Icon(
+                    Icons.aspect_ratio_rounded,
+                  )),
+              IconButton(
+                  onPressed: () {
+                    windowManager.minimize();
+                  },
+                  icon: const Icon(
+                    Icons.call_to_action_outlined,
+                  )),
+              IconButton(
+                  onPressed: () {
+                    onWindowClose();
+                  },
+                  icon: const Icon(
+                    Icons.close,
+                  )),
             ],
+            title: const Text('Au79'),
           ),
-        ),
-        body: DefaultTabController(
+          drawer: Drawer(
+            // Add a ListView to the drawer. This ensures the user can scroll
+            // through the options in the drawer if there isn't enough vertical
+            // space to fit everything.
+            child: ListView(
+              // Important: Remove any padding from the ListView.
+              padding: EdgeInsets.zero,
+              children: [
+                SizedBox(
+                  height: 65.0,
+                  child: DrawerHeader(
+                    decoration:
+                        BoxDecoration(color: Theme.of(context).primaryColor),
+                    child: const Text('Au79'),
+                  ),
+                ),
+                ExpansionTile(
+                  leading: const Icon(Icons.archive_outlined),
+                  title: const Text('Magazzino'),
+                  children: [
+                    ListTile(
+                      title: const Text('inserimento'),
+                      onTap: () {
+                        // Navigator.pushNamed(context, '/riparazioni');
+                      },
+                    ),
+                  ],
+                ),
+                ListTile(
+                  leading: Icon(Icons.key),
+                  title: const Text('Riparazioni'),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/riparazioni');
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.settings),
+                  title: const Text('Impostazioni'),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/impostazioni');
+                  },
+                ),
+              ],
+            ),
+          ),
+          body:
+              Container() /* DefaultTabController(
             length: 6,
             child: Scaffold(
               body: NestedScrollView(
@@ -168,7 +180,8 @@ class _HomeScreenState extends State<HomePage> with WindowListener {
                 ),
               ),
             )),
-      ),
+       */
+          ),
     );
   }
 }
